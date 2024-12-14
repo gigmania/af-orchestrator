@@ -1,0 +1,38 @@
+data:
+  metadataConnection:
+    user: airflow_user
+    pass: airflow_pass
+    host: psql-tysonium-centralus-dev.postgres.database.azure.com
+    port: 5432
+    db: airflow_db
+    protocol: postgresql
+
+webserverSecretKey: 9dd318fc0e35da421e430ff29ad44dca
+
+# Changed from volumeMounts to extraVolumeMounts
+extraVolumeMounts:
+  - name: airflow-dags
+    mountPath: /opt/airflow/dags  # Fixed capitalization of mountPath
+
+dags:
+  persistence:
+    enabled: true
+  gitSync:
+    enabled: false
+
+image:
+  repository: apache/airflow
+  tag: 2.9.3
+  pullPolicy: IfNotPresent
+
+persistence:
+  enabled: true
+  storageClassName: default
+
+executor: LocalExecutor 
+
+pgbouncer:
+  enabled: true
+  maxClientConn: 50
+  metadataPoolSize: 5
+  resultBackendPoolSize: 2

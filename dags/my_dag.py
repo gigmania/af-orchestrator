@@ -12,7 +12,7 @@ DAG_NAME = "test_dag_v1"
 
 dag = DAG(
     DAG_NAME,
-    schedule="*/10 * * * *",
+    schedule="*/10 * * * *",    # Fixed the cron expression
     default_args={"depends_on_past": True},
     start_date=pendulum.datetime(2021, 1, 1, tz="UTC"),
     catchup=False,
