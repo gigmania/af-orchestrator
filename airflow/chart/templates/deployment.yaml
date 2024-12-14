@@ -1,0 +1,12 @@
+spec:
+  containers:
+  - name: airflow-worker
+    # ... other container specifications ...
+    volumeMounts:
+    - name: airflow-dags
+      mountPath: /usr/local/airflow/dags 
+  volumes:
+  - name: airflow-dags
+    configMap:
+      name: airflow-dags
+      
