@@ -1,0 +1,23 @@
+webserverSecretKey: 9dd318fc0e35da421e430ff29ad44dca
+
+executor: LocalExecutor
+
+postgresql: 
+  enabled: true 
+  host: psql-tysonium-centralus-dev.postgres.database.azure.com 
+  port: 5432 
+  username: airflow_user 
+  password: airflow_pass 
+  database: airflow_db
+
+# Consider using a distributed executor for production
+ 
+pgbouncer:
+  enabled: true
+  # The maximum number of connections to PgBouncer
+  maxClientConn: 50
+  # The maximum number of server connections to the metadata database from PgBouncer
+  metadataPoolSize: 5
+  # The maximum number of server connections to the result backend database from PgBouncer
+  resultBackendPoolSize: 2
+  
