@@ -1,5 +1,3 @@
-webserverSecretKey: 9dd318fc0e35da421e430ff29ad44dca
-
 executor: LocalExecutor
 
 postgresql: 
